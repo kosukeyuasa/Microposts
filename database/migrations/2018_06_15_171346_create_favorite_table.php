@@ -4,13 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFavoriteTables extends Migration
+class CreateFavoriteTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('favorite', function (Blueprint $table) {
@@ -20,9 +16,7 @@ class CreateFavoriteTables extends Migration
             $table->timestamps();
 
             
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('favorite_id')->references('id')->on('microposts')->onDelete('cascade');
-
+            
             
             $table->unique(['user_id', 'favorite_id']);
         });
